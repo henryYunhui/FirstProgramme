@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3Dl-Y4-53l">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Root Table View Controller - Secret Mood-->
+        <scene sceneID="ZVS-IE-caf">
+            <objects>
+                <tableViewController id="vuC-7S-7y0" customClass="RootTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zYA-uj-vls">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Secret Mood Cell Without P" id="sUR-Hc-Wic" customClass="RootTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sUR-Hc-Wic" id="quZ-kK-3GF">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vuC-7S-7y0" id="Zr4-fR-2Ac"/>
+                            <outlet property="delegate" destination="vuC-7S-7y0" id="829-Fb-I28"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Secret Mood" id="cs3-qD-zGe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="j95-SE-065">
+                            <connections>
+                                <segue destination="Kyo-hH-oSg" kind="modal" id="8Ft-AQ-Thh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <segue destination="eYe-h2-Dip" kind="modal" identifier="Edit Mood" id="Lma-yE-8te"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGj-3G-LVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="72"/>
+        </scene>
+        <!--Add Mood View Controller-->
+        <scene sceneID="ng4-wa-5r3">
+            <objects>
+                <viewController id="Kyo-hH-oSg" customClass="AddMoodViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z9e-24-e86"/>
+                        <viewControllerLayoutGuide type="bottom" id="dRy-7t-Oa7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ca1-L3-10j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWo-JX-lSy">
+                                <rect key="frame" x="20" y="28" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel" destination="Kyo-hH-oSg" eventType="touchUpInside" id="tup-VS-RwS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0En-5M-VwM">
+                                <rect key="frame" x="263" y="28" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5Xs-lL-0UF" kind="unwind" identifier="Do Add Mood" unwindAction="addMood:" id="MIi-st-QX0"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sbb-MM-phj">
+                                <rect key="frame" x="0.0" y="66" width="320" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="131" id="pEM-m3-i2O"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Kyo-hH-oSg" id="x1E-Cf-wmX"/>
+                                </connections>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NNc-al-XQw">
+                                <rect key="frame" x="0.0" y="243" width="320" height="325"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDt-KQ-K8K">
+                                <rect key="frame" x="20" y="205" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPhoto" destination="Kyo-hH-oSg" eventType="touchUpInside" id="r3E-v0-09K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bDt-KQ-K8K" firstAttribute="leading" secondItem="fWo-JX-lSy" secondAttribute="leading" id="8jc-Mv-fGb"/>
+                            <constraint firstAttribute="bottom" secondItem="NNc-al-XQw" secondAttribute="bottom" id="9NI-18-wIO"/>
+                            <constraint firstItem="NNc-al-XQw" firstAttribute="top" secondItem="bDt-KQ-K8K" secondAttribute="bottom" constant="8" symbolic="YES" id="E8k-Rw-xFb"/>
+                            <constraint firstItem="sbb-MM-phj" firstAttribute="trailing" secondItem="NNc-al-XQw" secondAttribute="trailing" id="Iz8-YA-pet"/>
+                            <constraint firstItem="sbb-MM-phj" firstAttribute="leading" secondItem="Ca1-L3-10j" secondAttribute="leading" id="Mur-F9-LmN"/>
+                            <constraint firstItem="0En-5M-VwM" firstAttribute="baseline" secondItem="fWo-JX-lSy" secondAttribute="baseline" id="P1S-Yy-xMB"/>
+                            <constraint firstAttribute="trailing" secondItem="0En-5M-VwM" secondAttribute="trailing" constant="20" symbolic="YES" id="Rbi-me-fL3"/>
+                            <constraint firstItem="bDt-KQ-K8K" firstAttribute="top" secondItem="sbb-MM-phj" secondAttribute="bottom" constant="8" symbolic="YES" id="bfU-2j-Keg"/>
+                            <constraint firstItem="sbb-MM-phj" firstAttribute="leading" secondItem="NNc-al-XQw" secondAttribute="leading" id="hON-s2-m7S"/>
+                            <constraint firstItem="fWo-JX-lSy" firstAttribute="top" secondItem="Z9e-24-e86" secondAttribute="bottom" constant="8" id="jXT-fD-3Th"/>
+                            <constraint firstItem="sbb-MM-phj" firstAttribute="top" secondItem="fWo-JX-lSy" secondAttribute="bottom" constant="8" symbolic="YES" id="nui-02-7rP"/>
+                            <constraint firstItem="fWo-JX-lSy" firstAttribute="leading" secondItem="Ca1-L3-10j" secondAttribute="leading" constant="20" symbolic="YES" id="ocb-cZ-DwX"/>
+                            <constraint firstAttribute="trailing" secondItem="NNc-al-XQw" secondAttribute="trailing" id="zEB-lJ-5TU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="NNc-al-XQw" id="ptq-ZM-qyN"/>
+                        <outlet property="textView" destination="sbb-MM-phj" id="Dfv-js-9Jz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DbZ-f8-S6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5Xs-lL-0UF" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1277" y="72"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SUf-zW-gRT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Dl-Y4-53l" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ABL-bY-0As">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vuC-7S-7y0" kind="relationship" relationship="rootViewController" id="0K3-ZD-tcf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3C4-20-By9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286" y="72"/>
+        </scene>
+        <!--Edit Mood View Controller-->
+        <scene sceneID="NlA-M9-AmU">
+            <objects>
+                <viewController id="eYe-h2-Dip" customClass="EditMoodViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WLC-H0-yfA"/>
+                        <viewControllerLayoutGuide type="bottom" id="VzE-7Q-UlQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sa8-DK-E3c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agi-1s-TYn">
+                                <rect key="frame" x="20" y="28" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel" destination="eYe-h2-Dip" eventType="touchUpInside" id="9eh-pK-eKu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uS-Vh-Mm2">
+                                <rect key="frame" x="263" y="28" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="j7Z-FW-flW" kind="unwind" identifier="Done Edit Mood" unwindAction="addMood:" id="baW-fe-es5"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhv-m8-Ur4">
+                                <rect key="frame" x="0.0" y="66" width="320" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="131" id="8y6-Ns-1RM"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eYe-h2-Dip" id="XeZ-Ht-ndG"/>
+                                </connections>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6e-Rc-nP3">
+                                <rect key="frame" x="0.0" y="243" width="320" height="325"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8F-qW-O5p">
+                                <rect key="frame" x="20" y="205" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPhoto" destination="eYe-h2-Dip" eventType="touchUpInside" id="1sD-bR-gdP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bhv-m8-Ur4" secondAttribute="trailing" id="CzO-Ri-Q6i"/>
+                            <constraint firstItem="agi-1s-TYn" firstAttribute="top" secondItem="WLC-H0-yfA" secondAttribute="bottom" constant="8" id="E0O-ue-hDh"/>
+                            <constraint firstAttribute="trailing" secondItem="6uS-Vh-Mm2" secondAttribute="trailing" constant="20" symbolic="YES" id="O0q-v4-Adb"/>
+                            <constraint firstItem="v8F-qW-O5p" firstAttribute="top" secondItem="bhv-m8-Ur4" secondAttribute="bottom" constant="8" symbolic="YES" id="P0Q-sr-zHk"/>
+                            <constraint firstItem="agi-1s-TYn" firstAttribute="leading" secondItem="sa8-DK-E3c" secondAttribute="leading" constant="20" symbolic="YES" id="R6i-mN-vnM"/>
+                            <constraint firstItem="bhv-m8-Ur4" firstAttribute="leading" secondItem="sa8-DK-E3c" secondAttribute="leading" id="VFV-5v-WEz"/>
+                            <constraint firstAttribute="bottom" secondItem="V6e-Rc-nP3" secondAttribute="bottom" id="fn0-rw-rzQ"/>
+                            <constraint firstItem="bhv-m8-Ur4" firstAttribute="trailing" secondItem="V6e-Rc-nP3" secondAttribute="trailing" id="hr2-WI-5Uf"/>
+                            <constraint firstItem="agi-1s-TYn" firstAttribute="leading" secondItem="v8F-qW-O5p" secondAttribute="leading" id="i4d-85-zCp"/>
+                            <constraint firstItem="V6e-Rc-nP3" firstAttribute="top" secondItem="v8F-qW-O5p" secondAttribute="bottom" constant="8" symbolic="YES" id="j8R-dF-8ct"/>
+                            <constraint firstItem="bhv-m8-Ur4" firstAttribute="top" secondItem="agi-1s-TYn" secondAttribute="bottom" constant="8" symbolic="YES" id="n0c-5h-TnG"/>
+                            <constraint firstItem="agi-1s-TYn" firstAttribute="baseline" secondItem="6uS-Vh-Mm2" secondAttribute="baseline" id="p3V-cV-IHm"/>
+                            <constraint firstItem="V6e-Rc-nP3" firstAttribute="leading" secondItem="bhv-m8-Ur4" secondAttribute="leading" id="swY-mW-hgF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="V6e-Rc-nP3" id="Y1W-Re-xe5"/>
+                        <outlet property="textView" destination="bhv-m8-Ur4" id="3aF-YD-6lX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQ5-dm-lbR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="j7Z-FW-flW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="740"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
